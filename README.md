@@ -8,9 +8,13 @@ Simple `Node.js` application that expose a `gRPC` server with `CRUD` operations
   ```bash
   docker compose up -d
   ```
+- Install dependencies
+  ```bash
+  npm i
+  ```
 - Start the server
   ```bash
-  npm start 
+  npm start
   ```
   - The output should be the following
     ```
