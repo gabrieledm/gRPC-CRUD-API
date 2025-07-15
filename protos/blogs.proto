@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package blogs;
+
+service BlogsService {
+    // Unary APIs
+    rpc ListBlogs(ListBlogsRequest) returns (ListBlogsResponse) {};
+    rpc CreateBlog(CreateBlogRequest) returns (CreateBlogResponse) {};
+    rpc ReadBlog(ReadBlogRequest) returns (ReadBlogResponse) {};
+    rpc UpdateBlog(UpdateBlogRequest) returns (UpdateBlogResponse) {};
+    rpc DeleteBlog(DeleteBlogRequest) returns (DeleteBlogResponse) {};
+
+    // Stream APIs
+    rpc ListBlogsStream(ListBlogsRequest) returns (stream ListBlogsStreamResponse) {};
+}
+
+message Blog {
+    string id = 1;
+    string author = 2;
+    string title = 3;
+    string content = 4;
+}
+
+message ListBlogsRequest {}
+
+message ListBlogsResponse {
+    repeated Blog blogs = 1;
+}
+message ListBlogsStreamResponse {
+    Blog blog = 1;
+}
+
+message ReadBlogRequest {
+    string author = 1;
+    string title = 2;
+    string content = 3;
+}
+
+message ReadBlogResponse {
+    Blog blog = 1;
+}
+
+message CreateBlogRequest {
+    Blog blog = 1;
+}
+
+message CreateBlogResponse {
+    Blog blog = 1;
+}
+
+message UpdateBlogRequest {
+    Blog blog = 1;
+}
+
+message UpdateBlogResponse {
+    Blog blog = 1;
+}
+
+message DeleteBlogRequest {
+    string id = 1;
+}
+
+message DeleteBlogResponse {
+    Blog blog = 1;
+}
